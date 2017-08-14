@@ -1,0 +1,64 @@
+<div class="albumList">
+  <div class="check">
+    <div class="row">
+      <p>筛选专辑</p>
+    </div>
+    <div class="row">
+      <div class="check-btn" style="margin-right:106px;">
+        <app-dropDownList [listData]="albumTypeData" (notifyEvent)="albumTypeClicked($event)">
+        </app-dropDownList>
+      </div>
+      <div class="check-btn" style="margin-right:160px;">
+        <app-input [name]="'专辑名称：'" [value]="listParam.Name" (changeEvent)="listParam.Name=$event"></app-input>
+      </div>
+      <div class="check-btn" style="margin-right:54px;">
+        <app-button [name]="'查询'" [style]="'bule'" (click)="searchList()"></app-button>
+      </div>
+      <div class="check-btn">
+        <app-button [name]="'清空条件'" [style]="'bule'" (click)="listParamsInit()"></app-button>
+      </div>
+    </div>
+  </div>
+  <div class="list">
+    <div class="row" style="margin-bottom:24px;">
+      <div class="check-btn">
+        <app-button [name]="'创建专辑'" [style]="'orange'" [routerLink]="['/albumEdit',0]"></app-button>
+      </div>
+    </div>
+    <div class="row">
+      <table class="table" cellspacing="0">
+        <thead>
+          <tr>
+            <th>专辑名称</th>
+            <th>专辑类型</th>
+            <th>专辑所属</th>
+            <th>专辑价格/元</th>
+            <th>音频数量/个</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listData">
+            <td>{{item.AlbumName}}</td>
+            <td>{{item.AlbumTypeName}}</td>
+            <td>{{item.SName}}</td>
+            <td>{{item.AudioPrice}}</td>
+            <td>{{item.AudioCount}}</td>
+            <td>
+              <span [routerLink]="['/albumEdit',item.Id]">编辑</span>
+              <span [routerLink]="['/albumAudioEdit',item.Id]">上传</span>
+            </td>
+          </tr>
+          <tr *ngIf="listCount==0">
+            <th colspan="6" class="text-center">
+              暂无数据！
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div id="listDataPage"></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="albumEdit">
+  <div class="form">
+    <div class="row">
+      <div class="check-btn" style="margin-right:108px;">
+        <app-dropDownList [name]="'专辑类型'" [desc]="albumDesc" [listData]="albumTypeData" (notifyEvent)="albumTypeClicked($event)"></app-dropDownList>
+      </div>
+      <div class="check-btn">
+        <app-inputCompletion [name]="'专辑所属'" [desc]="desc" [ctype]="ctype" (notifyEvent)="albumTheClicked($event)"></app-inputCompletion>
+      </div>
+    </div>
+    <div class="row">
+      <div class="check-btn">
+        <app-input [name]="'专辑名称'" [value]="editAlbumParam.Name" (changeEvent)="editAlbumParam.Name=$event"></app-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="check-btn">
+        <app-textarea [name]="'专辑简介'" [value]="editAlbumParam.Introduce" (changeEvent)="editAlbumParam.Introduce=$event"></app-textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="file" accept="image/*" (change)="filechange($event)" />
+      <div class="check-btn" style="margin-right:24px;">
+        <app-uploadCoverMap [name]="'专辑封面'" [imgSrc]="albumImage"></app-uploadCoverMap>
+      </div>
+      <div class="check-btn">
+        <div style="height:30px;line-height:30px;color:#f5973b">文件大小
+          <3M,尺寸150x150px</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="check-btn" style="margin-right:24px;">
+          <app-input [name]="'声音单价'" [value]="editAlbumParam.Price" (changeEvent)="editAlbumParam.Price=$event"></app-input>
+        </div>
+        <div class="check-btn">
+          <div style="height:30px;line-height:30px;">元/条</div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="check-btn" style="margin-right:148px;margin-left: 93px;">
+        <app-button [name]="'发布'" [style]="'bule'" (click)="submit()"></app-button>
+      </div>
+      <div class="check-btn">
+        <app-button [name]="'取消'" [style]="'white'" (click)="cancel()"></app-button>
+      </div>
+    </div>
+  </div>

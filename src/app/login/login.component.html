@@ -1,0 +1,21 @@
+<div class="login">
+  <h1 class="title">
+    链景旅行APP 主播音频管理系统
+  </h1>
+  <div class="login-group">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-shouji"></use>
+    </svg>
+    <input type="text" [(ngModel)]="loginParam.Phone" maxlength="12" placeholder="链景旅行APP注册手机号" />
+  </div>
+  <div class="login-group">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-08"></use>
+    </svg>
+    <input type="password" [(ngModel)]="loginParam.Code" maxlength="11" placeholder="" />
+    <input type="button" class="sendCode" (click)="sendCodeClick()" value="发送验证码" />
+  </div>
+  <div class="login-group">
+    <input type="button" class="submit" (click)="login()" value="登录" />
+  </div>
+</div>

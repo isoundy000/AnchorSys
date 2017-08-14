@@ -1,0 +1,57 @@
+.autoCompletion{
+    position: relative; 
+    display: inline-block;
+    cursor:pointer; 
+}
+.autoCompletion span{
+    margin-right: 24px;
+}
+.autoCompletion svg{
+    position: absolute;
+    right: 10px;
+    top:0px;
+}
+.autoCompletion input{
+    color: white;
+    background: rgba(0, 0, 0, 0);
+    width:230px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid white;
+    outline: none;
+    text-align: left;
+    text-indent: 36px;
+    box-sizing: border-box;
+}
+.autoCompletion ul{
+    display: none;
+    width: 206px;
+    margin: 0 auto;
+    text-align: left;
+    padding: 0;
+    position: absolute;
+    right: 12px;
+    z-index: 10;
+}
+
+.autoCompletion .active{
+    display: block;
+}
+
+
+.autoCompletion ul li{
+    width: 206px;
+    height: 30px;
+    background-color:#ffffff; 
+    list-style:none;
+    list-style-type:none;
+    margin:0px;
+    text-indent: 30px;
+    color: 	#666666;
+    line-height:25px;
+    overflow: hidden; text-overflow:ellipsis; white-space: nowrap;
+}
+.autoCompletion ul li:hover{
+    background-color:#eeeeee; 
+    color: #333333;
+}

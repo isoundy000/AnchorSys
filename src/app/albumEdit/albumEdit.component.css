@@ -1,0 +1,19 @@
+.albumEdit{
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);  
+    margin: 0 auto;
+    color: white;
+}
+.albumEdit .form{
+    height: 404px;
+    width:900px;
+    background-color:#000000;/* IE6和部分IE7内核的浏览器(如QQ浏览器)下颜色被覆盖 */
+    background-color: rgba(0,0,0,0.2); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+    margin-bottom: 50px;
+    padding: 20px 30px;
+}

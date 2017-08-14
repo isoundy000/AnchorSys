@@ -1,0 +1,66 @@
+.title {
+    margin: 0 0 150px 0;
+    color: white;
+    font-size: 50px;
+}
+
+.login {
+    text-align: center;
+    height: 500px;
+    width: 800px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+}
+
+.login-group {
+    position: relative;
+    
+}
+
+    .login-group input[type="text"], .login-group input[type="password"] {
+        width: 300px;
+        height: 50px;
+        line-height: 50px;
+        border: 0;
+        border-bottom: 1px solid white;
+        background-color: transparent;
+        outline: none;
+        text-indent: 35px;
+        font-size: 20px;
+        color: white;
+    }
+
+    .login-group svg {
+        height: 50px;
+        line-height: 50px;
+        position: absolute;
+    }
+    .login-group .submit{
+        margin-top: 10px;
+        width: 300px;
+         height: 40px;
+         border-radius: 30px;
+          outline: none;
+          background-color:#fff;
+          color: black;
+          border:0;
+          font-weight: bold;
+    }
+    .login-group .sendCode{
+          position: absolute;
+       outline: none;
+       border:  1px solid #fff;
+       height: 30px;
+       line-height: 30px;
+       border-radius: 30px;
+        color: white;
+        right: 240px;
+        margin: 10px;
+             background-color:#000000;/* IE6和部分IE7内核的浏览器(如QQ浏览器)下颜色被覆盖 */
+  background-color: rgba(0,0,0,0.2); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+    }

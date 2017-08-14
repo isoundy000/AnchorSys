@@ -1,0 +1,15 @@
+<div class="scenicChoice">
+  <div class="header">
+    <span>故宫博物院</span>
+    <div class="check-btn" style="float: right;">
+      <app-button [name]="'添加景点'" [routerLink]="['../../scenicEdit',sid]" [style]="'orange'"></app-button>
+    </div>
+  </div>
+  <div class="form">
+    <div class="check-btn" *ngFor="let item of listData" (click)="selectItem(item)">
+      <img src="{{item.ImgUrl}}" alt="">
+      <p>{{item.Name}}</p>
+      <p>{{item.AlbumCount}}个音频</p>
+    </div>
+  </div>
+</div>

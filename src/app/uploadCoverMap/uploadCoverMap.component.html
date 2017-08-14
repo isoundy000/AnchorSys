@@ -1,0 +1,9 @@
+<div class="covermap">
+  <span>{{name}}</span>
+  <img class="imgPre" src="{{imgSrc}}" *ngIf="imgSrc" >
+  <div class="img" *ngIf="!imgSrc">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#icon-tupian"></use>
+    </svg>
+  </div>
+</div>

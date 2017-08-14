@@ -1,0 +1,10 @@
+<div class="autoCompletion" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" (keyup.enter)="search()">
+  <span>{{name}}</span>
+  <input type="text" [(ngModel)]="value" placeholder="{{desc}}">
+  <svg class="icon" aria-hidden="true" (click)="search()">
+    <use xlink:href="#icon-search"></use>
+  </svg>
+  <ul [class.active]="isShow">
+    <li *ngFor="let item of listData.array" (click)="selectItem(item)">{{item[listData.name]}}</li>
+  </ul>
+</div>

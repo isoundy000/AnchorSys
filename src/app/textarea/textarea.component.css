@@ -1,0 +1,28 @@
+.textarea{
+    position: relative;
+    display: inline-block;
+}
+.textarea span{
+    margin-right: 24px;
+    vertical-align: top;
+}
+.textarea textarea{
+    color: #ffffff;
+    margin: 0;
+    padding: 10px 15px 10px 10px;
+    width: 600px;
+    height: 150px;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    outline: none;
+    resize: none;
+    background-color:#000000;/* IE6和部分IE7内核的浏览器(如QQ浏览器)下颜色被覆盖 */
+    background-color: rgba(0,0,0,0.2); /* IE6和部分IE7内核的浏览器(如QQ浏览器)会读懂，但解析为透明 */
+    box-sizing: border-box;
+}
+.textarea p{
+    position: absolute;
+    text-align: right;
+    right: 18px;
+    bottom: 0px;
+}

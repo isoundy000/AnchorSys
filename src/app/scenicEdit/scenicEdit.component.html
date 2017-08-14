@@ -1,0 +1,31 @@
+<div class="scenicEdit">
+  <div class="form">
+    <div class="row">
+      <div class="check-btn">
+        <app-input [name]="'景点名称'" [value]="addScenicSpotParam.SName" (changeEvent)="addScenicSpotParam.SName=$event"></app-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="check-btn">
+        <app-textarea [name]="'景点简介'" [value]="addScenicSpotParam.Introduce" (changeEvent)="addScenicSpotParam.Introduce=$event"></app-textarea>
+      </div>
+    </div>
+    <div class="row">
+      <input type="file" accept="image/*" (change)="filechange($event)" />
+      <div class="check-btn" style="margin-right:24px;">
+        <app-uploadCoverMap [name]="'景点图片'"></app-uploadCoverMap>
+      </div>
+       <div class="check-btn">
+        <div style="height:30px;line-height:30px;color:#f5973b">尺寸建议,尺寸750x350px</div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="check-btn" style="margin-right:148px;margin-left: 93px;">
+        <app-button [name]="'确定'" [style]="'bule'" (click)="submit()"></app-button>
+      </div>
+      <div class="check-btn">
+        <app-button [name]="'取消'" [style]="'white'" (click)="cancel()"></app-button>
+      </div>
+    </div>
+</div>

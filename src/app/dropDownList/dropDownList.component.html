@@ -1,0 +1,10 @@
+<div class="dropDownList" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+  <span>{{name}}</span>
+  <button>{{desc}}</button>
+  <svg class="icon" aria-hidden="true">
+    <use xlink:href="#icon-xiajiantou"></use>
+  </svg>
+  <ul [class.active]="isShow">
+    <li *ngFor="let item of listData.array" (click)="selectItem(item)">{{item[listData.name]}}</li>
+  </ul>
+</div>
