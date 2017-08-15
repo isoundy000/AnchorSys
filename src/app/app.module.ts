@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -31,7 +32,8 @@ const routerConfig: Routes = [
   { path: '', component: LoginComponent },
   { path: 'albumList', loadChildren: "app/albumList/albumList.module#AlbumListModule" },
   { path: 'albumEdit/:id', loadChildren: "app/albumEdit/albumEdit.module#AlbumEditModule" },
-  { path: 'albumAudioEdit/:id', loadChildren: "app/albumAudioEdit/albumAudioEdit.module#AlbumAudioEditModule" }
+  { path: 'albumAudioEdit/:id', loadChildren: "app/albumAudioEdit/albumAudioEdit.module#AlbumAudioEditModule" },
+  { path: '**', component: LoginComponent }  
 ]
 
 
@@ -52,6 +54,7 @@ const routerConfig: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpModule,
     DropDownListModule,

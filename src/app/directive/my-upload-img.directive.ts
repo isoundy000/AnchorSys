@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 
 @Directive({
-  selector: '[appMyUploadImg]'
+  selector: 'my-upload',
 })
 export class MyUploadImgDirective {
 

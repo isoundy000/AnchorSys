@@ -14,6 +14,6 @@ import { ButtonModule } from "app/button/button.module";
         DropDownListModule,
         InputModule,
         ButtonModule
-    ]    
+    ]
 })
 export class AlbumListModule { }

@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService, ParamData, AlbumListParam } from "app/service/api.service";
 import { LocalStorage } from "app/service/local.storage";
 import { UiService } from "app/service/ui.service";
+import { flyIn } from "app/animations/fly-In";
 
 @Component({
   selector: 'app-albumList',
   templateUrl: './albumList.component.html',
-  styleUrls: ['./albumList.component.css']
+  styleUrls: ['./albumList.component.css'],
+  animations: [flyIn]
 })
 export class AlbumListComponent implements OnInit {
 
