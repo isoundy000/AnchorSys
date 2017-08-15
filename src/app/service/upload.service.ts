@@ -11,13 +11,13 @@ export class UploadService {
         }).share();
     }
 
-    public makeFileRequest(url: string, postData: any, files: File[]): Observable<any> {
+    public makeFileRequest(url: string, postData: any, files: File[],fieldname:string): Observable<any> {
         return Observable.create(observer => {
             let formData: FormData = new FormData(),
                 xhr: XMLHttpRequest = new XMLHttpRequest();
             //formData 文件流追加
             for (let i = 0; i < files.length; i++) {
-                formData.append("Voices", files[i], files[i].name);
+                formData.append(fieldname, files[i], files[i].name);
             }
             //formData 参数追加
             if (postData !== "" && postData !== undefined && postData !== null) {

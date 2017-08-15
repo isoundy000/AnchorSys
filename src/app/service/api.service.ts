@@ -25,7 +25,7 @@ export class ApiService {
         }
 
         if (data.file) {
-            return this.upload.makeFileRequest(host, bodyObj, data.file)
+            return this.upload.makeFileRequest(host, bodyObj, data.file, data.fieldname)
                 .map(res => JSON.parse(res))
                 .filter((res: ResponseInfo) => {
                     console.log(res);
@@ -109,7 +109,7 @@ export class ApiService {
     }
     //用户专辑上传音频
     uploadAlbumAudio(param: UploadAudioParam, file?: File[]) {
-        return this.post(new ParamData("UserUpLoadAudio", param, file));
+        return this.post(new ParamData("UserUpLoadAudio", param, file, "Voices"));
     }
     //根据sid获取景点
     getScenicSpot(param: ScenicSpotParam) {
@@ -128,6 +128,7 @@ export class ParamData {
         public cmd: string,
         public param: any,
         public file?: File[],
+        public fieldname: string="default",
         public errorMsg?: boolean,
         public loadingState?: boolean
     ) {

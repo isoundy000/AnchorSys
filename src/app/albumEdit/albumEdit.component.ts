@@ -9,7 +9,11 @@ import { ApiService, EditAlbumParam, AlbumInfoParam } from "app/service/api.serv
 })
 export class AlbumEditComponent implements OnInit {
 
-  albumTypeData;
+  albumTypeData: any = {
+    array: [],
+    id: "Id",
+    name: "Name"
+  };
   private file: File[];
   albumImage: string;
   desc: string;//专辑所属类型描述

@@ -30,10 +30,11 @@ import { UiService } from "app/service/ui.service";
 
 const routerConfig: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'albumList', loadChildren: "app/albumList/albumList.module#AlbumListModule" },
   { path: 'albumEdit/:id', loadChildren: "app/albumEdit/albumEdit.module#AlbumEditModule" },
   { path: 'albumAudioEdit/:id', loadChildren: "app/albumAudioEdit/albumAudioEdit.module#AlbumAudioEditModule" },
-  { path: '**', component: LoginComponent }  
+  { path: '**', component: LoginComponent }
 ]
 
 
@@ -68,7 +69,8 @@ const routerConfig: Routes = [
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
-    }],
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
