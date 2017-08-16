@@ -1,5 +1,13 @@
 .covermap{
 }
+.covermap input{
+    display:block;
+    opacity: 0;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    z-index: 1;
+}
 .covermap span{
     margin-right: 24px;
     vertical-align: top;
@@ -19,7 +27,20 @@
     display: inline-block;
     position: relative;
 }
-.covermap .icon{
+.covermap .imgPre img{
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+}
+.covermap .imgPre .icon{
+    width: 24px;
+    height: 24px;
+    right: 0;
+    top: 0;
+    position: absolute; 
+    cursor:pointer;
+}
+.covermap .img .icon{
     width: 60px;
     height: 50px;
     position: absolute; 

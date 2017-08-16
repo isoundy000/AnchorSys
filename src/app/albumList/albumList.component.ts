@@ -17,7 +17,6 @@ export class AlbumListComponent implements OnInit {
     private ui: UiService,
     private ls: LocalStorage
   ) {
-    console.log(this.albumTypeData)
   }
 
   albumTypeData: any = {
@@ -49,7 +48,7 @@ export class AlbumListComponent implements OnInit {
   }
   listParamsInit() {
     this.listParam.PageIndex = 1;
-    this.listParam.PageSize = 2;
+    this.listParam.PageSize = 10;
     this.listParam.CType = "0";
     this.listParam.Name = "";
   }

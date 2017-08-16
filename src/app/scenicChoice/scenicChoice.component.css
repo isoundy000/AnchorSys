@@ -32,6 +32,9 @@
    border: 2px solid #fff;
    border-radius: 5px;
 }
+.scenicChoice p{
+   width:110px;
+}
 .scenicChoice .check-btn{
      text-align: center;
      margin-right: 60px;

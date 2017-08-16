@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { ApiService, ParamData, ResponseInfo, LoginParam } from "app/service/api.service";
 import { LocalStorage } from "app/service/local.storage";
-
+declare var layer: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
   sendCodeClick() {
     this.api.sendCode(this.loginParam).subscribe(res => {
-      console.log(res);
+      layer.msg(res.Msg);
     });
   }
 }

@@ -14,7 +14,7 @@ export class AlbumEditComponent implements OnInit {
     id: "Id",
     name: "Name"
   };
-  private file: File[];
+  file: File[];
   albumImage: string;
   desc: string;//专辑所属类型描述
   albumDesc: string = "全部";//专辑类型所属描述
@@ -75,9 +75,6 @@ export class AlbumEditComponent implements OnInit {
   albumTheClicked(item: any) {
     this.editAlbumParam.RId = item.Id;
     this.editAlbumParam.RType = item.RType;
-  }
-  filechange(event) {
-    this.file = event.srcElement.files;
   }
   submit() {
     console.log(this.editAlbumParam);

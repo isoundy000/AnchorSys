@@ -12,7 +12,7 @@ export class AlbumAudioEditComponent implements OnInit {
    albumInfoParam: AlbumInfoParam = new AlbumInfoParam();
    audioAlbumParam: AudioAlbumParam = new AudioAlbumParam();
    uploadAlbumAudioParam: UploadAudioParam;
-   albumData?: any;
+   albumData?: any={};
    uploadQueues: any[] = [];
    languageData: any;
    albumId: number;
