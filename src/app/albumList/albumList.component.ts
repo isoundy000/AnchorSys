@@ -18,7 +18,7 @@ export class AlbumListComponent implements OnInit {
     private ls: LocalStorage
   ) {
   }
-
+  albumDesc: string = "全部";
   albumTypeData: any = {
     array: [],
     id: "Id",
@@ -47,6 +47,7 @@ export class AlbumListComponent implements OnInit {
     });
   }
   listParamsInit() {
+    this.albumDesc = "全部";
     this.listParam.PageIndex = 1;
     this.listParam.PageSize = 10;
     this.listParam.CType = "0";
