@@ -10,6 +10,7 @@ declare var layer: any;
 export class ScenicEditComponent implements OnInit {
 
   sid: number;
+  albumId: number;
   addScenicSpotParam: AddScenicSpotParam = new AddScenicSpotParam();
   file: File[];
   constructor(
@@ -20,16 +21,18 @@ export class ScenicEditComponent implements OnInit {
 
   ngOnInit() {
     this.sid = this.routerInfo.snapshot.params["id"];
+    let routerCurrent: any = this.router.routerState;
+    this.albumId = routerCurrent.parent(this.routerInfo).snapshot.params["id"]
   }
   submit() {
     this.addScenicSpotParam.Id = this.sid;
     this.api.addScenicSpot(this.addScenicSpotParam, this.file).subscribe(res => {
-      layer.alert(res.Msg);
-      window.history.back();
+      layer.msg(res.Msg);
+      this.router.navigate([`/albumAudioEdit/${this.albumId}/scenicChoice`, this.sid]);
     });
   }
   cancel() {
-    window.history.back();
+    this.router.navigate([`/albumAudioEdit/${this.albumId}/scenicChoice`, this.sid]);
   }
 
 }

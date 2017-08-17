@@ -31,7 +31,7 @@
         <div class="check-btn" style="margin-right:108px;">
           <app-dropDownList [name]="'音频语种'" [desc]="item.descLang" [listData]="item.languageData" (notifyEvent)="languageClicked($event,item)"></app-dropDownList>
         </div>
-        <div class="check-btn" style="margin-right:108px;" *ngIf="albumData.BindCType!=0">
+        <div class="check-btn" *ngIf="albumData.BindCType!=0">
           <app-input (click)="choiceScenicSpot(item)"  [routerLink]="['scenicChoice', albumData.SId]" [name]="'所属景点'" [value]="item.sName"></app-input>
         </div>
       </div>

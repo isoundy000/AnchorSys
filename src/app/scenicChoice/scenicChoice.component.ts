@@ -34,7 +34,7 @@ export class ScenicChoiceComponent implements OnInit {
   }
   selectItem(item) {
     this.api.choiceScenicSpotEvent.emit(item);
-    window.history.back();
+    this.router.navigate(["/albumAudioEdit",this.albumId]);
   }
 
 }
