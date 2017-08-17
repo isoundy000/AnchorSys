@@ -9,9 +9,10 @@ import { ApiService, ScenicSpotParam } from "app/service/api.service";
 })
 export class ScenicChoiceComponent implements OnInit {
 
-   scenicSpotParam: ScenicSpotParam = new ScenicSpotParam();
-   listData: any[];
-   sid: number;
+  scenicSpotParam: ScenicSpotParam = new ScenicSpotParam();
+  listData: any[];
+  sid: number;
+  albumId: number;
   constructor(
     private api: ApiService,
     private routerInfo: ActivatedRoute,
@@ -20,10 +21,13 @@ export class ScenicChoiceComponent implements OnInit {
 
   ngOnInit() {
     this.sid = this.routerInfo.snapshot.params["id"];
+    let routerCurrent: any = this.router.routerState;
+    this.albumId = routerCurrent.parent(this.routerInfo).snapshot.params["id"]
     this.initScenicSpotList(this.sid);
   }
   initScenicSpotList(sid: number) {
     this.scenicSpotParam.SId = sid;
+    this.scenicSpotParam.AlbumId = this.albumId;
     this.api.getScenicSpot(this.scenicSpotParam).subscribe(res => {
       this.listData = res.Value;
     });

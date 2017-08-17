@@ -128,7 +128,7 @@ export class ParamData {
         public cmd: string,
         public param: any,
         public file?: File[],
-        public fieldname: string="default",
+        public fieldname: string = "default",
         public errorMsg?: boolean,
         public loadingState?: boolean
     ) {
@@ -194,6 +194,7 @@ export class UploadAudioParam {
 export class ScenicSpotParam {
     private Guid: string = localStorage["GUID"] || "";
     public SId: number;
+    public AlbumId: number;
 }
 export class AddScenicSpotParam {
     public SName: string;
