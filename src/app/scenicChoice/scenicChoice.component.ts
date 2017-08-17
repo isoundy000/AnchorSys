@@ -13,6 +13,7 @@ export class ScenicChoiceComponent implements OnInit {
   listData: any[];
   sid: number;
   albumId: number;
+  scenicName: string;
   constructor(
     private api: ApiService,
     private routerInfo: ActivatedRoute,
@@ -30,11 +31,12 @@ export class ScenicChoiceComponent implements OnInit {
     this.scenicSpotParam.AlbumId = this.albumId;
     this.api.getScenicSpot(this.scenicSpotParam).subscribe(res => {
       this.listData = res.Value;
+      this.scenicName = this.listData[0].Name;
     });
   }
   selectItem(item) {
     this.api.choiceScenicSpotEvent.emit(item);
-    this.router.navigate(["/albumAudioEdit",this.albumId]);
+    this.router.navigate(["/albumAudioEdit", this.albumId]);
   }
 
 }

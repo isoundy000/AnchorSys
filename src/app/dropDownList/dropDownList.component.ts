@@ -13,7 +13,7 @@ export class DropDownListComponent implements OnInit {
   name: string = "";
   //提示语
   @Input()
-  desc: string = "全部";
+  desc: string;
   //输入数据
   @Input()
   listData: any = {
@@ -25,7 +25,9 @@ export class DropDownListComponent implements OnInit {
   @Output()
   notifyEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {
+  
+  }
 
   ngOnInit() {
     // this.listData = {

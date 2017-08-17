@@ -9,14 +9,14 @@ import { Subscription } from "rxjs/Rx";
   styleUrls: ['./albumAudioEdit.component.css']
 })
 export class AlbumAudioEditComponent implements OnInit {
-   albumInfoParam: AlbumInfoParam = new AlbumInfoParam();
-   audioAlbumParam: AudioAlbumParam = new AudioAlbumParam();
-   uploadAlbumAudioParam: UploadAudioParam;
-   albumData?: any={};
-   uploadQueues: any[] = [];
-   languageData: any;
-   albumId: number;
-   routerChildrenState: boolean = false;
+  albumInfoParam: AlbumInfoParam = new AlbumInfoParam();
+  audioAlbumParam: AudioAlbumParam = new AudioAlbumParam();
+  uploadAlbumAudioParam: UploadAudioParam;
+  albumData?: any = {};
+  uploadQueues: any[] = [];
+  languageData: any;
+  albumId: number;
+  routerChildrenState: boolean = false;
   constructor(
     private api: ApiService,
     private routerInfo: ActivatedRoute,
@@ -47,6 +47,9 @@ export class AlbumAudioEditComponent implements OnInit {
     this.audioAlbumParam.PageIndex = 1;
     this.audioAlbumParam.PageSize = 9999;
     this.api.getAlbumAudio(this.audioAlbumParam).subscribe(res => {
+      if (!res.Value) {
+        return;
+      }
       res.Value.forEach(item => {
         this.uploadAlbumAudioParam = new UploadAudioParam();
         this.uploadAlbumAudioParam.Name = item.Name;
@@ -90,7 +93,7 @@ export class AlbumAudioEditComponent implements OnInit {
     let files: File[] = event.srcElement.files;
     for (let i = 0; i < files.length; i++) {
       this.uploadAlbumAudioParam = new UploadAudioParam();
-      this.uploadAlbumAudioParam.Name = files[i].name;
+      this.uploadAlbumAudioParam.Name = files[i].name.substring(0, files[i].name.lastIndexOf("."));
       this.uploadAlbumAudioParam.RId = this.albumId;
       this.uploadAlbumAudioParam.SId = 0;
       this.uploadAlbumAudioParam.Id = 0;

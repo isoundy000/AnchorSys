@@ -17,8 +17,9 @@ export class AlbumListComponent implements OnInit {
     private ui: UiService,
     private ls: LocalStorage
   ) {
+  
   }
-  albumDesc: string = "全部";
+  albumDesc: string = "";
   albumTypeData: any = {
     array: [],
     id: "Id",
@@ -80,6 +81,7 @@ export class AlbumListComponent implements OnInit {
 
   albumTypeClicked(item: any) {
     this.listParam.CType = item.Id;
+    this.albumDesc = item.LName;
   }
 }
 

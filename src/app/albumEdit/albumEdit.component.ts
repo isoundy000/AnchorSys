@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { ApiService, EditAlbumParam, AlbumInfoParam } from "app/service/api.service";
-
+declare var layer: any;
 @Component({
   selector: 'app-albumEdit',
   templateUrl: './albumEdit.component.html',
@@ -80,7 +80,7 @@ export class AlbumEditComponent implements OnInit {
     console.log(this.editAlbumParam);
     this.api.editAlbum(this.editAlbumParam, this.file).subscribe(res => {
       if (res.State == 0) {
-        alert(res.Msg);
+        layer.msg(res.Msg);
         this.router.navigate(['albumList']);
       }
     });
