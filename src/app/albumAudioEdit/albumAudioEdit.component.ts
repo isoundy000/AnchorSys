@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { ApiService, AlbumInfoParam, AudioAlbumParam, UploadAudioParam } from "app/service/api.service";
 import { ActivatedRoute, Params, Router } from "@angular/router";
 import { Subscription } from "rxjs/Rx";
-
 @Component({
   selector: 'app-albumAudioEdit',
   templateUrl: './albumAudioEdit.component.html',
   styleUrls: ['./albumAudioEdit.component.css']
 })
 export class AlbumAudioEditComponent implements OnInit {
+
   albumInfoParam: AlbumInfoParam = new AlbumInfoParam();
   audioAlbumParam: AudioAlbumParam = new AudioAlbumParam();
   uploadAlbumAudioParam: UploadAudioParam;
@@ -42,6 +42,7 @@ export class AlbumAudioEditComponent implements OnInit {
       this.albumData = res.Value;
     });
   }
+
   initAudioList(id: number) {
     this.audioAlbumParam.AlbumId = id;
     this.audioAlbumParam.PageIndex = 1;
@@ -109,7 +110,22 @@ export class AlbumAudioEditComponent implements OnInit {
   }
   submit() {
     this.uploadQueues.forEach((item) => {
+      if (!item.param.Name) {
+        item.Msg = "请填写音频名称";
+        return;
+      }
+      if (this.albumData.BindCType == 1) {
+        if (item.param.SId == 0) {
+          item.Msg = "请选择所属景点";
+          return;
+        }
+      }
+      if (!item.param.Lang) {
+        item.Msg = "请选择音频语种";
+        return;
+      }
       if (item.file) {
+        item.Msg = "正在上传，请勿关闭此页面……"
         this.api.uploadAlbumAudio(item.param, [item.file]).subscribe(res => {
           item.Msg = res.Msg;
           if (res.State == 0) {
@@ -117,6 +133,7 @@ export class AlbumAudioEditComponent implements OnInit {
           }
         });
       } else {
+        item.Msg = "正在上传，请勿关闭此页面……"
         this.api.uploadAlbumAudio(item.param).subscribe(res => {
           item.Msg = res.Msg;
           if (res.State == 0) {

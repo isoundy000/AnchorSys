@@ -10,6 +10,7 @@ declare var layer: any;
 })
 export class LoginComponent implements OnInit {
   loginParam: LoginParam = new LoginParam();
+  sendMsg: string = "发送验证码";
   constructor(
     private router: Router,
     private api: ApiService,
@@ -31,9 +32,22 @@ export class LoginComponent implements OnInit {
       }
     });
   }
+  sendNumber: number = 60;
   sendCodeClick() {
+    if (this.sendNumber != 60) {
+      return;
+    }
     this.api.sendCode(this.loginParam).subscribe(res => {
       layer.msg(res.Msg);
+      let tempInterval = setInterval(() => {
+        this.sendNumber--;
+        this.sendMsg = `重新发送${this.sendNumber}s`;
+        if (this.sendNumber == 0) {
+          clearInterval(tempInterval);
+          this.sendMsg = "发送验证码";
+          this.sendNumber = 60;
+        }
+      }, 1000);
     });
   }
 }

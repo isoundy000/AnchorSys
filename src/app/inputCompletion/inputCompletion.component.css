@@ -22,6 +22,7 @@
     text-align: left;
     text-indent: 36px;
     box-sizing: border-box;
+    padding-right: 40px;
 }
 .autoCompletion ul{
     display: none;

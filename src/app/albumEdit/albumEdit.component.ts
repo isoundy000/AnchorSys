@@ -30,7 +30,6 @@ export class AlbumEditComponent implements OnInit {
   ngOnInit() {
     this.initAlbumType();
     let id = this.routerInfo.snapshot.params["id"];
-    // this.routerInfo.params.subscribe((params: Params) => params["id"]);
     this.editAlbumParam.Id = id;
     if (id != 0) {
       this.initAlbumInfo(id);
@@ -81,11 +80,11 @@ export class AlbumEditComponent implements OnInit {
     this.api.editAlbum(this.editAlbumParam, this.file).subscribe(res => {
       if (res.State == 0) {
         layer.msg(res.Msg);
-        this.router.navigate(['albumList']);
+        window.history.back();
       }
     });
   }
   cancel() {
-    this.router.navigate(['albumList']);
+    window.history.back();
   }
 }

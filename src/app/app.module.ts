@@ -26,17 +26,7 @@ import { LocalStorage } from './service/local.storage';
 import { UploadService } from "app/service/upload.service";
 import { DropDownListModule } from "app/dropDownList/dropDownList.module";
 import { UiService } from "app/service/ui.service";
-
-
-const routerConfig: Routes = [
-  { path: '', component: LoginComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'albumList', loadChildren: "app/albumList/albumList.module#AlbumListModule" },
-  { path: 'albumEdit/:id', loadChildren: "app/albumEdit/albumEdit.module#AlbumEditModule" },
-  { path: 'albumAudioEdit/:id', loadChildren: "app/albumAudioEdit/albumAudioEdit.module#AlbumAudioEditModule" },
-  { path: '**', component: LoginComponent }
-]
-
+import { AppRoutes } from "app/app.routing";
 
 @NgModule({
   declarations: [
@@ -59,7 +49,7 @@ const routerConfig: Routes = [
     FormsModule,
     HttpModule,
     DropDownListModule,
-    RouterModule.forRoot(routerConfig)
+    RouterModule.forRoot(AppRoutes)
   ],
   providers: [
     UploadService,

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService, SearchAlbumParam } from "app/service/api.service";
-
+declare var layer: any;
 @Component({
   selector: 'app-inputCompletion',
   templateUrl: './inputCompletion.component.html',
@@ -46,6 +46,10 @@ export class InputCompletionComponent implements OnInit {
     this.notifyEvent.emit(item);
   }
   search() {
+    if (!this.ctype) {
+      layer.alert("请先选择专辑类型！", { icon: 7 });
+      return;
+    }
     this.searchAlbumParam.KeyWord = this.value;
     this.searchAlbumParam.CType = this.ctype;
     this.api.searchAlbum(this.searchAlbumParam).subscribe((res) => {
@@ -54,7 +58,7 @@ export class InputCompletionComponent implements OnInit {
         name: "Name",
         array: res.Value
       }
-      this.isShow=true;
+      this.isShow = true;
     });
   }
 }

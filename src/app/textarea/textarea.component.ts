@@ -13,6 +13,8 @@ export class TextareaComponent implements OnInit {
   name: string = "";
   @Input()
   value = "";
+  @Input()
+  maxLength: number = 300;
   @Output()
   changeEvent: EventEmitter<any> = new EventEmitter<any>();
 

@@ -10,12 +10,12 @@
     </div>
     <div class="row">
       <div class="check-btn">
-        <app-input [name]="'专辑名称'" [value]="editAlbumParam.Name" (changeEvent)="editAlbumParam.Name=$event"></app-input>
+        <app-input [name]="'专辑名称'" [value]="editAlbumParam.Name" [maxLength]="20" (changeEvent)="editAlbumParam.Name=$event"></app-input>
       </div>
     </div>
     <div class="row">
       <div class="check-btn">
-        <app-textarea [name]="'专辑简介'" [value]="editAlbumParam.Introduce" (changeEvent)="editAlbumParam.Introduce=$event"></app-textarea>
+        <app-textarea [name]="'专辑简介'" [value]="editAlbumParam.Introduce" [maxLength]="300" (changeEvent)="editAlbumParam.Introduce=$event"></app-textarea>
       </div>
     </div>
     <div class="row">

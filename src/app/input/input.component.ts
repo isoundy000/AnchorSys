@@ -13,6 +13,8 @@ export class InputComponent implements OnInit {
   value = "";
   @Input()
   desc = "";
+  @Input()
+  maxLength: number = 50;
   @Output()
   changeEvent: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }

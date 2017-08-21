@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="check-btn">
-        <app-textarea [name]="'景点简介'" [value]="addScenicSpotParam.Introduce" (changeEvent)="addScenicSpotParam.Introduce=$event"></app-textarea>
+        <app-textarea [name]="'景点简介'"  [maxLength]="300" [value]="addScenicSpotParam.Introduce" (changeEvent)="addScenicSpotParam.Introduce=$event"></app-textarea>
       </div>
     </div>
     <div class="row">

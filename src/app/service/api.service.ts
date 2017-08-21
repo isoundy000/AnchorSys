@@ -153,8 +153,8 @@ export class LoginParam {
     public Code?: number;
 }
 export class AlbumListParam {
-    public PageIndex: number;
-    public PageSize: number;
+    public PageIndex: number=1;
+    public PageSize: number=10;
     private Guid: string = localStorage["GUID"] || "";
     public CType?: string;
     public Name?: string = "";

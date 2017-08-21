@@ -13,7 +13,7 @@
       <use xlink:href="#icon-08"></use>
     </svg>
     <input type="password" [(ngModel)]="loginParam.Code" maxlength="11" placeholder="" />
-    <input type="button" class="sendCode" (click)="sendCodeClick()" value="发送验证码" />
+    <input type="button" class="sendCode" (click)="sendCodeClick()" [(ngModel)]="sendMsg" />
   </div>
   <div class="login-group">
     <input type="button" class="submit" (click)="login()" value="登录" />

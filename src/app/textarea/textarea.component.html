@@ -1,5 +1,5 @@
 <div class="textarea">
   <span>{{name}}</span>
-  <textarea rows="" cols="" (change)="onchange()" [(ngModel)]="value"></textarea>
-  <p>{{value?.length||0}}/100</p>
+  <textarea rows="" cols="" maxlength="{{maxLength}}" (change)="onchange()" [(ngModel)]="value"></textarea>
+  <p>{{value?.length||0}}/{{maxLength}}</p>
 </div>

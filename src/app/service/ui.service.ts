@@ -12,20 +12,24 @@ export class UiService {
            */
     generationPage(id, count, pageSize): Observable<number> {
         return Observable.create(observer => {
-            if ($("#" + id).size() > 0)
+            if ($("#" + id).size() > 0) {
+                if ($("#" + id)[0].innerHTML) {
+                    return;
+                }
                 //分页控件
                 laypage({
                     cont: id,
                     pages: Math.ceil(count / pageSize),//总页数
-                   // skip: true, //是否开启跳页
+                    // skip: true, //是否开启跳页
                     skin: '#29bcf5',
                     jump: function (obj, first) {
                         if (!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
                             observer.next(obj.curr);
-                        //    observer.complete();
+                            //    observer.complete();
                         }
                     }
                 });
+            }
         });
     }
 }

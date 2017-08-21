@@ -49,6 +49,10 @@ body {
     background: #eeeeee;
     color: #666666;
 }
+.table td span{
+   cursor: pointer;
+}
+
     ::-webkit-input-placeholder { /* WebKit browsers */
     color: #ffffff;
 }
