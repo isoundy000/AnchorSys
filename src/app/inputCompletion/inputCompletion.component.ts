@@ -14,19 +14,20 @@ export class InputCompletionComponent implements OnInit {
   name: string = "";
   //提示语
   @Input()
-  value: string = "";
+  value = "";
   @Input()
   desc: string = "";
   @Input()
-  ctype: number;
-
+  ctype: number = -88;
   searchAlbumParam: SearchAlbumParam = new SearchAlbumParam();
   listData?: any;
   //回掉函数
   @Output()
   notifyEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {
+
+  }
 
   ngOnInit() {
     this.listData = {
@@ -46,13 +47,16 @@ export class InputCompletionComponent implements OnInit {
     this.notifyEvent.emit(item);
   }
   search() {
-    if (!this.ctype) {
+    if (this.ctype == -88||this.ctype ==undefined) {
       layer.alert("请先选择专辑类型！", { icon: 7 });
       return;
     }
     this.searchAlbumParam.KeyWord = this.value;
     this.searchAlbumParam.CType = this.ctype;
     this.api.searchAlbum(this.searchAlbumParam).subscribe((res) => {
+      if (!res.Value) {
+        return;
+      }
       this.listData = {
         id: "Id",
         name: "Name",

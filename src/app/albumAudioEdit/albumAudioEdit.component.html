@@ -19,8 +19,11 @@
       <div class="uploadQueue" *ngFor="let item of uploadQueues;let idx=index">
         <div class="row">
           <div class="check-btn">
-            <app-input [name]="'音频名称'" [value]="item.param.Name" (changeEvent)="item.param.Name=$event"></app-input>
+            <app-input [name]="'音频>>'+(idx+1)" [value]="item.param.Name" (changeEvent)="item.param.Name=$event"></app-input>
             <span style="color:#48c056">{{item.Msg}}</span>
+          </div>
+          <div class="check-btn" *ngIf="item.rejectState">
+            <span [ngStyle]="{'color': rejectStateGet(item.rejectState).Color}">当前状态：{{rejectStateGet(item.rejectState).Name}}</span>
           </div>
           <div class="check-btn" style="float:right;" *ngIf="item.file" (click)="uploadQueueDel(item,idx)">
             <svg class="icon" aria-hidden="true">
@@ -31,8 +34,8 @@
         <div class="check-btn" style="margin-right:108px;">
           <app-dropDownList [name]="'音频语种'" [desc]="item.descLang" [listData]="item.languageData" (notifyEvent)="languageClicked($event,item)"></app-dropDownList>
         </div>
-        <div class="check-btn" *ngIf="albumData.BindCType==1">
-          <app-input (click)="choiceScenicSpot(item)"  [routerLink]="['scenicChoice', albumData.SId]" [name]="'所属景点'" [value]="item.sName"></app-input>
+        <div class="check-btn" *ngIf="albumData.AlbumTypeId==1">
+          <app-input (click)="choiceScenicSpot(item)" [name]="'所属景点'" [value]="item.sName"></app-input>
         </div>
       </div>
     </div>

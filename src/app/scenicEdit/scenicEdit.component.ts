@@ -25,6 +25,18 @@ export class ScenicEditComponent implements OnInit {
     this.albumId = routerCurrent.parent(this.routerInfo).snapshot.params["id"]
   }
   submit() {
+    if (!this.addScenicSpotParam.SName) {
+      layer.alert("请填写景点名称！", { icon: 7 });
+      return;
+    }
+    if (!this.addScenicSpotParam.Introduce) {
+      layer.alert("请填写景点简介！", { icon: 7 });
+      return;
+    }
+    if (!this.file) {
+      layer.alert("请选择景点图片！", { icon: 7 });
+      return;
+    }
     this.addScenicSpotParam.Id = this.sid;
     this.api.addScenicSpot(this.addScenicSpotParam, this.file).subscribe(res => {
       layer.msg(res.Msg);

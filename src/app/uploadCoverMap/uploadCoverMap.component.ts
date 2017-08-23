@@ -60,11 +60,6 @@ export class UploadCoverMapComponent {
       let $thisImg = this;
       if ($this.width && $this.height) {
         if ($this.width != this.width || $this.height != this.height) {
-          if ($this.name) {
-            $this.name += ">";
-          } else {
-            $this.name = "";
-          }
           //强制限制图片尺寸开关
           if ($this.force == true) {
             layer.alert($this.name + "尺寸必须" + $this.width + "x" + $this.height + "，请注意！", { icon: 7 }, function (index) {

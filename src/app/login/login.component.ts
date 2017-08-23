@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
     this.api.login(this.loginParam).subscribe((res: ResponseInfo) => {
       if (res.Value) {
         this.ls.set("GUID", res.Value.Guid);
-        this.router.navigate(['albumList']);
+        this.router.navigate(['albumList',1]);
       }
     });
   }
@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
     if (this.sendNumber != 60) {
       return;
     }
+    this.sendNumber--;
+    this.sendMsg = `重新发送${this.sendNumber}s`;
     this.api.sendCode(this.loginParam).subscribe(res => {
       layer.msg(res.Msg);
       let tempInterval = setInterval(() => {

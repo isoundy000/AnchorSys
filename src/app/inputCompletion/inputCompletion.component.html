@@ -1,6 +1,6 @@
 <div class="autoCompletion" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" (keyup.enter)="search()">
   <span>{{name}}</span>
-  <input type="text" [(ngModel)]="value" placeholder="{{desc}}">
+  <input type="text" [(ngModel)]="value" (change)="search()" placeholder="{{desc}}">
   <svg class="icon" aria-hidden="true" (click)="search()">
     <use xlink:href="#icon-search"></use>
   </svg>

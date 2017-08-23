@@ -8,17 +8,18 @@ export class UiService {
                id html标签id
                count 数据总数
                pageSize 每页显示数量
-               fn 需要执行的函数
+               curr 1
            */
-    generationPage(id, count, pageSize): Observable<number> {
+    generationPage(id, count, pageSize, curr = 1): Observable<number> {
         return Observable.create(observer => {
             if ($("#" + id).size() > 0) {
-                if ($("#" + id)[0].innerHTML) {
+                if ($("#" + id)[0].innerHTML && curr != 1) {
                     return;
                 }
                 //分页控件
                 laypage({
                     cont: id,
+                    curr: curr,
                     pages: Math.ceil(count / pageSize),//总页数
                     // skip: true, //是否开启跳页
                     skin: '#29bcf5',

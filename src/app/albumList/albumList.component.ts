@@ -67,7 +67,7 @@ export class AlbumListComponent implements OnInit {
         this.listData = [];
       } else {
         this.listData = res.Value;
-        this.ui.generationPage('listDataPage', this.listCount, this.listParam.PageSize).subscribe(nextPage => {
+        this.ui.generationPage('listDataPage', this.listCount, this.listParam.PageSize, this.listParam.PageIndex).subscribe(nextPage => {
           this.datalist(nextPage);
         });
       }

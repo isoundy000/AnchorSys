@@ -11,7 +11,7 @@ export class UploadService {
         }).share();
     }
 
-    public makeFileRequest(url: string, postData: any, files: File[],fieldname:string): Observable<any> {
+    public makeFileRequest(url: string, postData: any, files: File[], fieldname: string): Observable<any> {
         return Observable.create(observer => {
             let formData: FormData = new FormData(),
                 xhr: XMLHttpRequest = new XMLHttpRequest();
@@ -44,7 +44,6 @@ export class UploadService {
 
                 // this.progressObserver.next(this.progress);
             };
-
             xhr.open('POST', url, true);
             xhr.send(formData);
         });

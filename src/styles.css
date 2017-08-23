@@ -8,6 +8,7 @@
     }
 body {
       background-image: url(assets/beijing.png);
+      background-attachment: fixed;
       background-size:cover;
       background-repeat: no-repeat;
       /* overflow: hidden; */

@@ -9,8 +9,11 @@
       </div>
     </div>
     <div class="row">
-      <div class="check-btn">
+      <div class="check-btn" style="margin-right:24px;">
         <app-input [name]="'专辑名称'" [value]="editAlbumParam.Name" [maxLength]="20" (changeEvent)="editAlbumParam.Name=$event"></app-input>
+      </div>
+      <div class="check-btn">
+        <div style="height:30px;line-height:30px;color:#f5973b">最多20字</div>
       </div>
     </div>
     <div class="row">

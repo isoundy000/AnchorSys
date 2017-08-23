@@ -1,12 +1,12 @@
 .albumAudioEdit{
     position: absolute; 
     left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    -o-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);  
-    margin: 0 auto;
+    /* top: 50%; */
+    -webkit-transform: translate(-50%,-0%);
+    -ms-transform: translate(-50%,-0%);
+    -o-transform: translate(-50%,-0%);
+    transform: translate(-50%,-0%);  
+    margin: 70px auto;
     color: white;
 }
 .albumAudioEdit .header{
@@ -24,8 +24,8 @@
     margin-bottom: 50px;
     padding: 20px 30px;
 
-    max-height: 500px;
-    overflow: auto;
+    /* max-height: 500px;
+    overflow: auto; */
 }
 .albumAudioEdit .uploadQueue{
   border: 1.5px dashed #ffffff;

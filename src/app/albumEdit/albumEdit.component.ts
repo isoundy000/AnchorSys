@@ -19,6 +19,7 @@ export class AlbumEditComponent implements OnInit {
   desc: string;//专辑所属类型描述
   albumDesc: string = "全部";//专辑类型所属描述
   ctype: number;//所属类型Id
+  parentCurrentPage: number = 1;
   editAlbumParam: EditAlbumParam = new EditAlbumParam();
   albumInfoParam: AlbumInfoParam = new AlbumInfoParam();
   constructor(
@@ -29,7 +30,8 @@ export class AlbumEditComponent implements OnInit {
 
   ngOnInit() {
     this.initAlbumType();
-    let id = this.routerInfo.snapshot.params["id"];
+    let id = this.routerInfo.snapshot.params["id"].split('-')[0];
+    this.parentCurrentPage = this.routerInfo.snapshot.params["id"].split('-')[1];
     this.editAlbumParam.Id = id;
     if (id != 0) {
       this.initAlbumInfo(id);
@@ -76,15 +78,40 @@ export class AlbumEditComponent implements OnInit {
     this.editAlbumParam.RType = item.RType;
   }
   submit() {
-    console.log(this.editAlbumParam);
+    if (this.editAlbumParam.CTypeId==undefined) {
+      layer.alert("请先选择专辑类型！", { icon: 7 });
+      return;
+    }
+    if (this.editAlbumParam.RType==undefined) {
+      layer.alert("请先选择专辑所属！", { icon: 7 });
+      return;
+    }
+    if (!this.editAlbumParam.Name) {
+      layer.alert("请填写专辑名称！", { icon: 7 });
+      return;
+    }
+    if (!this.editAlbumParam.Introduce) {
+      layer.alert("请填写专辑简介！", { icon: 7 });
+      return;
+    }
+    if (!this.albumImage&&!this.file) {
+      layer.alert("请选择专辑封面！", { icon: 7 });
+      return;
+    }
+    if (this.editAlbumParam.Price==undefined) {
+      layer.alert("请填写声音单价！", { icon: 7 });
+      return;
+    }
+
+
     this.api.editAlbum(this.editAlbumParam, this.file).subscribe(res => {
       if (res.State == 0) {
         layer.msg(res.Msg);
-        window.history.back();
+        this.router.navigate(['albumList', this.parentCurrentPage]);
       }
     });
   }
   cancel() {
-    window.history.back();
+    this.router.navigate(['albumList', this.parentCurrentPage]);
   }
 }
