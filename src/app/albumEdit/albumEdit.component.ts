@@ -15,7 +15,7 @@ export class AlbumEditComponent implements OnInit {
     name: "Name"
   };
   file: File[];
-  albumImage: string;
+  albumImage: any[] = [];
   desc: string;//专辑所属类型描述
   albumDesc: string = "全部";//专辑类型所属描述
   ctype: number;//所属类型Id
@@ -29,12 +29,14 @@ export class AlbumEditComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.initAlbumType();
+
     let id = this.routerInfo.snapshot.params["id"].split('-')[0];
     this.parentCurrentPage = this.routerInfo.snapshot.params["id"].split('-')[1];
     this.editAlbumParam.Id = id;
     if (id != 0) {
       this.initAlbumInfo(id);
+    } else {
+      this.initAlbumType();
     }
   }
   initAlbumInfo(id: number) {
@@ -48,7 +50,7 @@ export class AlbumEditComponent implements OnInit {
         this.editAlbumParam.Price = res.Value.AudioPrice;
         this.editAlbumParam.RId = 0;
         this.editAlbumParam.RType = 0;
-        this.albumImage = res.Value.AlbumImage;
+        this.albumImage.push(res.Value.AlbumImage);
         this.desc = res.Value.SName;
         this.albumDesc = res.Value.AlbumTypeName;
         this.ctype = res.Value.BindCType;
@@ -78,11 +80,11 @@ export class AlbumEditComponent implements OnInit {
     this.editAlbumParam.RType = item.RType;
   }
   submit() {
-    if (this.editAlbumParam.CTypeId==undefined) {
+    if (this.editAlbumParam.CTypeId == undefined) {
       layer.alert("请先选择专辑类型！", { icon: 7 });
       return;
     }
-    if (this.editAlbumParam.RType==undefined) {
+    if (this.editAlbumParam.RType == undefined) {
       layer.alert("请先选择专辑所属！", { icon: 7 });
       return;
     }
@@ -94,11 +96,11 @@ export class AlbumEditComponent implements OnInit {
       layer.alert("请填写专辑简介！", { icon: 7 });
       return;
     }
-    if (!this.albumImage&&!this.file) {
+    if (!this.albumImage && !this.file) {
       layer.alert("请选择专辑封面！", { icon: 7 });
       return;
     }
-    if (this.editAlbumParam.Price==undefined) {
+    if (this.editAlbumParam.Price == undefined) {
       layer.alert("请填写声音单价！", { icon: 7 });
       return;
     }

@@ -23,7 +23,7 @@
     </div>
     <div class="row">
       <div class="check-btn" style="margin-right:24px;">
-        <app-uploadCoverMap [name]="'专辑封面'" [imgSrc]="albumImage" [width]="150" [height]="150" (changeFileEvent)="file=$event"></app-uploadCoverMap>
+        <app-uploadCoverMap [maxFileLength]="1" [name]="'专辑封面'" [imgSrc]="albumImage" [width]="150" [height]="150" (changeFileEvent)="file=$event"></app-uploadCoverMap>
       </div>
       <div class="check-btn">
         <div style="height:30px;line-height:30px;color:#f5973b">文件大小

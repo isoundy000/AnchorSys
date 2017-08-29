@@ -22,7 +22,7 @@ export class ScenicEditComponent implements OnInit {
   ngOnInit() {
     this.sid = this.routerInfo.snapshot.params["id"];
     let routerCurrent: any = this.router.routerState;
-    this.albumId = routerCurrent.parent(this.routerInfo).snapshot.params["id"]
+    this.albumId = routerCurrent.parent(this.routerInfo).snapshot.params["id"].split('-')[0];
   }
   submit() {
     if (!this.addScenicSpotParam.SName) {
@@ -39,8 +39,12 @@ export class ScenicEditComponent implements OnInit {
     }
     this.addScenicSpotParam.Id = this.sid;
     this.api.addScenicSpot(this.addScenicSpotParam, this.file).subscribe(res => {
-      layer.msg(res.Msg);
-      this.router.navigate([`/albumAudioEdit/${this.albumId}/scenicChoice`, this.sid]);
+      if (res.State == 0) {
+        layer.msg(res.Msg);
+        this.router.navigate([`/albumAudioEdit/${this.albumId}/scenicChoice`, this.sid]);
+      } else {
+        layer.alert(res.Msg, { icon: 2 });
+      }
     });
   }
   cancel() {

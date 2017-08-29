@@ -23,7 +23,7 @@ export class ScenicChoiceComponent implements OnInit {
   ngOnInit() {
     this.sid = this.routerInfo.snapshot.params["id"];
     let routerCurrent: any = this.router.routerState;
-    this.albumId = routerCurrent.parent(this.routerInfo).snapshot.params["id"];
+    this.albumId = routerCurrent.parent(this.routerInfo).snapshot.params["id"].split('-')[0];
     this.initScenicSpotList(this.sid);
   }
   initScenicSpotList(sid: number) {

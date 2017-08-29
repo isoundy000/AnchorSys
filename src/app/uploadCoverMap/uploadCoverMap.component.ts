@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 declare var layer: any;
 @Component({
   selector: 'app-uploadCoverMap',
@@ -8,9 +8,11 @@ declare var layer: any;
 export class UploadCoverMapComponent {
 
   @Input()
+  maxFileLength: number = 1;
+  @Input()
   name = "name init";
   @Input()
-  imgSrc = "";
+  imgSrc = [];
   //限制宽度
   @Input()
   width: number;
@@ -20,12 +22,11 @@ export class UploadCoverMapComponent {
   //强制限制图片尺寸开关
   @Input()
   force: boolean = false;
-  private file: File[];
+  private outfiles: File[]=[];
   state: boolean = false;
   @Output()
   changeFileEvent: EventEmitter<File[]> = new EventEmitter<File[]>();
   constructor() { }
-
   filechange(event) {
     //文件限制提示语
     var showMsg = function (itemSize, maxSize) {
@@ -36,15 +37,15 @@ export class UploadCoverMapComponent {
       return true;
     }
 
-    this.file = event.srcElement.files;
-    if (!showMsg(this.file[0].size, 1024 * 3)) {
+    let files = event.srcElement.files;
+    if (!showMsg(files[0].size, 1024 * 3)) {
       return;
     }
     let $this = this;
     var reader = new FileReader();
 
     reader.onload = onLoadFile;
-    reader.readAsDataURL(this.file[0]);
+    reader.readAsDataURL(files[0]);
 
 
     function onLoadFile(event) {
@@ -53,8 +54,10 @@ export class UploadCoverMapComponent {
       img.src = event.target.result;
     }
     function backFile(result) {
-      $this.imgSrc = result;
-      $this.changeFileEvent.emit($this.file);
+      $this.imgSrc.push(result);
+      //----------------------------------
+      $this.outfiles.push(files[0]);
+      $this.changeFileEvent.emit($this.outfiles);
     }
     function onLoadImage() {
       let $thisImg = this;
@@ -94,8 +97,10 @@ export class UploadCoverMapComponent {
   mouseleave() {
     this.state = false;
   }
-  delImg() {
-    this.imgSrc = "";
+  delImg(index) {
+    this.imgSrc.splice(index, 1);
+    this.outfiles.splice(index, 1);
+    this.changeFileEvent.emit(this.outfiles);
   }
 
 }

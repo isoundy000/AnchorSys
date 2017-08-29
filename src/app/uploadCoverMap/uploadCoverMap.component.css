@@ -26,6 +26,7 @@
     border-radius: 15px;
     display: inline-block;
     position: relative;
+    margin-right: 5px;
 }
 .covermap .imgPre img{
     width: 100px;

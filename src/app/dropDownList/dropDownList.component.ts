@@ -26,7 +26,7 @@ export class DropDownListComponent implements OnInit {
   notifyEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() {
-  
+
   }
 
   ngOnInit() {
@@ -43,7 +43,9 @@ export class DropDownListComponent implements OnInit {
   }
 
   mouseenter() {
-    this.isShow = true;
+    if (this.listData.array.length > 0) {
+      this.isShow = true;
+    }
   }
   mouseleave() {
     this.isShow = false;

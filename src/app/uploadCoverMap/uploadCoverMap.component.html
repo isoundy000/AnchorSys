@@ -1,12 +1,12 @@
 <div class="covermap">
   <span>{{name}}</span>
-  <div class="imgPre"  *ngIf="imgSrc"  (mouseenter)="mouseenter()" (mouseleave)="mouseleave()" >
-    <img src="{{imgSrc}}">
-    <svg class="icon" aria-hidden="true" *ngIf="state" (click)="delImg()">
+  <div class="imgPre" *ngFor="let item of imgSrc;let i=index" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
+    <img [src]="item">
+    <svg class="icon" aria-hidden="true" *ngIf="state" (click)="delImg(i)">
       <use xlink:href="#icon-shanchu"></use>
     </svg>
   </div>
-  <div class="img" *ngIf="!imgSrc">
+  <div class="img" *ngIf="maxFileLength>imgSrc.length">
     <input type="file" accept="image/*" (change)="filechange($event)" />
     <svg class="icon" aria-hidden="true">
       <use xlink:href="#icon-tupian"></use>
