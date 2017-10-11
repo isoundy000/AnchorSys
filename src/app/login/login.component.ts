@@ -20,11 +20,18 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loginParam.Phone = 15010156268;
-    this.loginParam.Code = 8888;
+    
   }
 
   login() {
+    if(!this.loginParam.Phone){
+      layer.alert("请输入手机号！",{icon:2});
+      return;
+    }
+    if(!this.loginParam.Code){
+      layer.alert("请输入验证码！",{icon:2});
+      return;
+    }
     this.api.login(this.loginParam).subscribe((res: ResponseInfo) => {
       if (res.Value) {
         this.ls.set("GUID", res.Value.Guid);
