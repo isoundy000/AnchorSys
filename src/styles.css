@@ -1,73 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
 
-    html{
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    }
-body {
-      background-image: url(assets/beijing.png);
-      background-attachment: fixed;
-      background-size:cover;
-      background-repeat: no-repeat;
-      /* overflow: hidden; */
-      font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"SimSun";
-      font-size: 16px;
-       margin:0;      padding:0;      width:100%;      height:100%; 
-    }
-    .icon {
-       width: 32px; height: 32px;
-       vertical-align: -1px;
-       fill: currentColor;
-       overflow: hidden;
-       color: white;
-    }
-    .row {
-        width: 100%;
-        margin-bottom: 12px;
-    }
-    .check-btn{
-        display: inline-block;
-        vertical-align:text-top
-    }
-    .table{
-   width: 100%;
-   text-align: center;
-   border: 0;
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
-.table th,td{
+
+body {
+    background-image: url(assets/beijing.png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* overflow: hidden; */
+    font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif, "SimSun";
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.icon {
+    width: 32px;
+    height: 32px;
+    vertical-align: -1px;
+    fill: currentColor;
+    overflow: hidden;
+    color: white;
+}
+
+.row {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.check-btn {
+    display: inline-block;
+    vertical-align: text-top
+}
+
+.table {
+    width: 100%;
+    text-align: center;
+    border: 0;
+}
+
+.table th,
+td {
     height: 30px;
     border: 1px solid #000000;
 }
-.table th{
+
+.table th {
     background: #ffffff;
     font-size: 16px;
     color: #333333;
 }
-.table td{
+
+.table td {
     font-size: 14px;
     background: #eeeeee;
     color: #666666;
 }
-.table td span{
-   cursor: pointer;
+
+.table td span {
+    cursor: pointer;
 }
 
-    ::-webkit-input-placeholder { /* WebKit browsers */
+ ::-webkit-input-placeholder {
+    /* WebKit browsers */
     color: #ffffff;
 }
 
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color: #ffffff;
-    opacity: 1;
-}
-
-::-moz-placeholder { /* Mozilla Firefox 19+ */
+:-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
     color: #ffffff;
     opacity: 1;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10+ */
+::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color: #ffffff;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10+ */
     color: #ffffff;
 }
